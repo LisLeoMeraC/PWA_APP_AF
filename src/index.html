@@ -1,13 +1,101 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>PwaExecAgrofranco</title>
+  <title>PWA Ejecutiva - AgroFranco</title>
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta name="theme-color" content="#2E7D32">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.webmanifest">
+  
+  <style>
+    /* Splash Screen CSS */
+    .app-splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #2E7D32;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      color: white;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    .splash-logo {
+      width: 80px;
+      height: 80px;
+      background: white;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #2E7D32;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      animation: pulse 2s infinite ease-in-out;
+      margin-bottom: 24px;
+    }
+    .splash-logo svg {
+      width: 40px;
+      height: 40px;
+    }
+    .splash-title {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin: 0;
+    }
+    .splash-subtitle {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-top: 8px;
+    }
+    .splash-loader {
+      margin-top: 40px;
+      width: 40px;
+      height: 4px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .splash-loader::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 50%;
+      background: white;
+      border-radius: 4px;
+      animation: loading 1.5s infinite ease-in-out;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255,255,255,0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(255,255,255,0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+    }
+    @keyframes loading {
+      0% { left: -50%; }
+      100% { left: 150%; }
+    }
+  </style>
 </head>
 <body>
-  <app-root></app-root>
+  <app-root>
+    <div class="app-splash-screen">
+      <div class="splash-logo">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+      </div>
+      <h1 class="splash-title">AgroFranco</h1>
+      <p class="splash-subtitle">Portal Ejecutivo PWA</p>
+      <div class="splash-loader"></div>
+    </div>
+  </app-root>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>
 </html>
